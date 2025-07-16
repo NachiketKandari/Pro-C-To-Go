@@ -1,0 +1,251 @@
+/* Pro*C to Go Migration - Shared Styles */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+}
+
+h1, h2, h3, h4 {
+    color: #0f172a;
+    letter-spacing: -0.025em;
+}
+
+h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Navigation Styles */
+.nav-link {
+    transition: color 0.2s, border-bottom-color 0.2s;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link.active {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+    font-weight: 600;
+}
+
+.nav-link:not(.active):hover {
+    color: #3b82f6;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #e2e8f0;
+    padding: 0.75rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+}
+
+/* Code Styles */
+code {
+    background-color: #e2e8f0;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+}
+
+pre > code {
+    display: block;
+    padding: 1rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Accordion Styles (for index.html) */
+details > summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+.arrow-icon {
+    transition: transform 0.3s ease-in-out;
+}
+
+details[open] .arrow-icon {
+    transform: rotate(90deg);
+}
+
+.accordion-content {
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+/* Citation Links */
+.citation-link {
+    color: #2563eb;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.citation-link:hover {
+    text-decoration: underline;
+}
+
+/* Workflow Styles (for workflow.html) */
+.workflow-step {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.workflow-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.arrow {
+    width: 2px;
+    height: 40px;
+    background-color: #cbd5e1;
+    margin: 0 auto;
+    position: relative;
+}
+
+.arrow::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #cbd5e1;
+}
+
+.dashed-arrow {
+    position: relative;
+    height: 60px;
+}
+
+.dashed-arrow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    border-left: 2px dashed #cbd5e1;
+}
+
+.dashed-arrow::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #cbd5e1;
+}
+
+/* Modal Styles (for workflow.html) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Mobile Menu Styles */
+#mobile-menu {
+    transition: all 0.3s ease-in-out;
+}
+
+#mobile-menu.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+#mobile-menu:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .workflow-step {
+        padding: 1rem;
+    }
+    
+    .workflow-step h3 {
+        font-size: 1rem;
+    }
+    
+    .workflow-step p {
+        font-size: 0.875rem;
+    }
+}
