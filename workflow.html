@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Migration Workflow: Pro*C to Go</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+      .workflow-step {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            cursor: pointer;
+        }
+      .workflow-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+      .arrow {
+            width: 2px;
+            height: 40px;
+            background-color: #cbd5e1;
+            margin: 0 auto;
+            position: relative;
+        }
+      .arrow::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid #cbd5e1;
+        }
+      .dashed-arrow {
+            position: relative;
+            height: 60px;
+        }
+      .dashed-arrow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            border-left: 2px dashed #94a3b8;
+            height: 100%;
+        }
+      .dashed-arrow::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid #94a3b8;
+        }
+        #modal-backdrop.hidden {
+            display: none;
+        }
+        #modal-body ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        #modal-body li {
+            margin-bottom: 0.5rem;
+        }
+     .nav-link {
+            transition: color 0.2s, border-bottom-color 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+     .nav-link.active {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+            font-weight: 600;
+        }
+     .nav-link:not(.active):hover {
+            color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-lg font-bold text-slate-800">Pro*C → Go Migration</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="./index.html" class="nav-link px-1 py-2 text-sm font-medium text-slate-600">Detailed Report</a>
+                        <a href="./workflow.html" class="nav-link active px-1 py-2 text-sm font-medium">Interactive Workflow</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="flex flex-col h-[calc(100vh-4rem)]">
+        <div class="bg-f8fafc z-30 pt-8 pb-4">
+            <header class="text-center container mx-auto px-4">
+                <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900">AI-Augmented Migration Pipeline</h1>
+                <p class="mt-2 text-lg text-slate-600">An interactive view of the Pro*C to Go modernization process. Click any step to learn more.</p>
+            </header>
+        </div>
+
+        <main class="flex-grow overflow-y-auto p-4 md:p-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <h2 class="text-2xl font-semibold text-center text-blue-700 mb-6 pb-2 border-b-2 border-blue-200">Phase 1: Static Analysis & Metadata Extraction</h2>
+                    <div class="workflow-step bg-white p-4 rounded-lg shadow-md text-center" data-step="proc-source">
+                        <h3 class="font-semibold">Pro*C Source Code (.pc file)</h3>
+                        <p class="text-sm text-slate-500">The starting point: legacy code with embedded SQL.</p>
+                    </div>
+                    <div class="arrow"></div>
+                    <div class="workflow-step bg-blue-100 border border-blue-300 p-4 rounded-lg shadow-md text-center" data-step="oracle-proc">
+                        <h3 class="font-semibold">Oracle Precompiler (`proc`)</h3>
+                        <p class="text-sm text-slate-500">Separates SQL from C code.</p>
+                    </div>
+                    <div class="arrow"></div>
+                    <div class="workflow-step bg-white p-4 rounded-lg shadow-md text-center" data-step="c-stubs">
+                        <h3 class="font-semibold">Generated C Code (.c file)</h3>
+                        <p class="text-sm text-slate-500">SQL is replaced with C function calls.</p>
+                    </div>
+                    <div class="arrow"></div>
+                    <div class="workflow-step bg-blue-100 border border-blue-300 p-4 rounded-lg shadow-md text-center" data-step="libclang">
+                        <h3 class="font-semibold">C Parser (`libclang`)</h3>
+                        <p class="text-sm text-slate-500">Builds an Abstract Syntax Tree (AST) of the C code.</p>
+                    </div>
+                    <div class="arrow"></div>
+                    <div class="workflow-step bg-green-100 border border-green-300 p-4 rounded-lg shadow-md text-center" data-step="json-ir">
+                        <h3 class="font-semibold">Canonical JSON Metadata (IR)</h3>
+                        <p class="text-sm text-slate-500">The final, structured output of the analysis phase.</p>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <div class="arrow"></div>
+                    <h2 class="text-2xl font-semibold text-center text-purple-700 my-6 pb-2 border-b-2 border-purple-200">Phase 2: The Hybrid Translation Core</h2>
+                    <div class="workflow-step bg-purple-100 border border-purple-300 p-4 rounded-lg shadow-md text-center" data-step="orchestrator">
+                        <h3 class="font-semibold">Orchestrator</h3>
+                        <p class="text-sm text-slate-500">Intelligently routes tasks based on complexity.</p>
+                    </div>
+
+                    <div class="flex justify-around mt-4">
+                        <div class="w-1/2 px-2">
+                            <div class="dashed-arrow"></div>
+                            <div class="workflow-step bg-white p-4 rounded-lg shadow-md text-center" data-step="rule-engine">
+                                <h3 class="font-semibold">Rule-Based "Fast Path"</h3>
+                                <p class="text-sm text-slate-500">For simple, common patterns.</p>
+                            </div>
+                        </div>
+                        <div class="w-1/2 px-2">
+                            <div class="dashed-arrow"></div>
+                            <div class="workflow-step bg-white p-4 rounded-lg shadow-md text-center" data-step="llm-fallback">
+                                <h3 class="font-semibold">LLM Fallback Path</h3>
+                                <p class="text-sm text-slate-500">For complex logic and edge cases.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-around mt-4">
+                        <div class="w-1/2 px-2"><div class="arrow"></div></div>
+                        <div class="w-1/2 px-2"><div class="arrow"></div></div>
+                    </div>
+                     <div class="workflow-step bg-green-100 border border-green-300 p-4 rounded-lg shadow-md text-center" data-step="go-snippet">
+                        <h3 class="font-semibold">Generated Go Code Snippet</h3>
+                        <p class="text-sm text-slate-500">The raw output from the selected translation path.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="arrow"></div>
+                    <h2 class="text-2xl font-semibold text-center text-teal-700 my-6 pb-2 border-b-2 border-teal-200">Phase 3: Synthesis & Iterative Verification</h2>
+                    <div class="workflow-step bg-teal-100 border border-teal-300 p-4 rounded-lg shadow-md text-center" data-step="verification-loop">
+                        <h3 class="font-semibold">Compile-Test-Verify Loop</h3>
+                        <p class="text-sm text-slate-500">An automated feedback loop to ensure correctness.</p>
+                    </div>
+                    <div class="arrow"></div>
+                    <div class="workflow-step bg-green-100 border border-green-300 p-4 rounded-lg shadow-md text-center" data-step="final-go">
+                        <h3 class="font-semibold">Final, Verified Go Code (.go file)</h3>
+                        <p class="text-sm text-slate-500">Production-ready, formatted, and tested Go module.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="modal-backdrop" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+        <div id="modal-content" class="bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col">
+            <div class="sticky top-0 bg-white p-4 border-b flex justify-between items-center">
+                <h2 id="modal-title" class="text-xl font-bold"></h2>
+                <button id="modal-close" class="text-2xl font-bold leading-none text-slate-500 hover:text-slate-800">&times;</button>
+            </div>
+            <div id="modal-body" class="p-6 overflow-y-auto">
+                <div class="mb-6">
+                    <h4 class="font-semibold text-slate-800 text-lg">What is it?</h4>
+                    <div id="modal-what" class="mt-2 text-slate-600 space-y-3"></div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-slate-800 text-lg">Why is it used?</h4>
+                    <div id="modal-why" class="mt-2 text-slate-600 space-y-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const stepDetails = {
+            'proc-source': {
+                title: 'Pro*C Source Code (.pc)',
+                what: '<p>The starting point of the migration. These are legacy C source files containing embedded SQL statements prefixed with <code>EXEC SQL</code>. They represent a hybrid of application logic (in C) and data access logic (in SQL).</p>',
+                why: '<p>This is the legacy codebase that needs to be modernized. Its hybrid nature, combined with manual memory management and a diminishing talent pool, makes it difficult to maintain and evolve. Migrating it to Go addresses this technical debt.</p>'
+            },
+            'oracle-proc': {
+                title: 'Oracle Precompiler (`proc`)',
+                what: '<p>An official Oracle tool that processes <code>.pc</code> files. It is executed with specific flags like <code>code=cpp</code> and <code>sqlcheck=no</code>. It identifies all <code>EXEC SQL</code> blocks and converts them into standard C function calls (to OCI libraries), outputting a regular <code>.c</code> file.</p>',
+                why: '<p>By using Oracle\'s official tool as the first pass, we ensure an authoritative and accurate separation of SQL from the host C code. This dramatically simplifies the next step, as the pipeline can now work with standard C code instead of a proprietary dialect, which is much easier to parse reliably.</p>'
+            },
+            'c-stubs': {
+                title: 'Generated C Code (.c)',
+                what: '<p>A standard C source file produced by the <code>proc</code> tool. The original embedded SQL is now represented as calls to Oracle\'s C client libraries (OCI). The file is now pure C, with no custom Pro*C syntax.</p>',
+                why: '<p>Because this file is pure, standard C, it can be accurately parsed by robust, industry-standard C language parsers like libclang. This avoids the need to build and maintain a complex, custom grammar for the Pro*C dialect, significantly reducing risk and development effort.</p>'
+            },
+            'libclang': {
+                title: 'C Parser (`libclang`)',
+                what: '<p>A stable, high-performance C library from the Clang/LLVM project that provides programmatic access to the compiler\'s Abstract Syntax Tree (AST). It parses the <code>.c</code> file into a structured tree representation of the code.</p>',
+                why: '<p>This approach is recommended over building a custom parser (e.g., with ANTLR4) because it minimizes risk and development time. <code>libclang</code> is an industry-standard C parser, guaranteeing a highly accurate and detailed AST for all C constructs, which is essential for correctly extracting the program\'s logic and data dependencies.</p>'
+            },
+            'json-ir': {
+                title: 'Canonical JSON Metadata (IR)',
+                what: `<p>The ultimate output of the analysis phase. It's a structured JSON object, an "Intermediate Representation" (IR), for each function. It contains:</p>
+                       <ul>
+                         <li>The raw SQL query and its type (e.g., SELECT, INSERT).</li>
+                         <li>A manifest of all host variables with their C type, Go type, and direction (in/out).</li>
+                         <li>The explicit error handling directive (e.g., <code>WHENEVER SQLERROR...</code>).</li>
+                         <li>A representation of the surrounding control flow logic (loops, conditionals).</li>
+                       </ul>`,
+                why: '<p>This JSON object acts as a clean, unambiguous input for the translation phase. It provides a complete, self-contained description of the work to be done, which is essential for enabling high-quality, context-aware translation by both the rule-based engine and the LLM, dramatically reducing the chance of AI "hallucination".</p>'
+            },
+            'orchestrator': {
+                title: 'Orchestrator',
+                what: `<p>A central module that receives the JSON IR and decides which translation path to take based on a set of heuristics:</p>
+                       <ul>
+                         <li><b>Pattern Complexity:</b> Simple INSERTs go to the rule engine.</li>
+                         <li><b>Keyword Triggers:</b> Keywords like <code>CURSOR</code> or <code>DYNAMIC</code> trigger the LLM path.</li>
+                         <li><b>Confidence Score:</b> A low score from the rule engine can trigger a fallback to the LLM.</li>
+                       </ul>`,
+                why: '<p>This intelligent routing optimizes for speed, cost, and quality. Simple, common patterns are sent to the fast and cheap rule-based engine, while complex tasks are reserved for the more powerful (but more expensive) LLM. This hybrid approach provides the best of both worlds.</p>'
+            },
+            'rule-engine': {
+                title: 'Rule-Based "Fast Path"',
+                what: '<p>A deterministic translator that applies a library of predefined transformation rules (e.g., AST-to-AST transforms). It is designed to handle the most common, repetitive code patterns found in the codebase.</p>',
+                why: '<p>This path provides speed, reliability, and predictability for the "80%" of boilerplate code. It can perform translations with high speed and 100% accuracy for the patterns it supports, forming a solid, trustworthy baseline for the entire automation pipeline.</p>'
+            },
+            'llm-fallback': {
+                title: 'LLM Fallback Path',
+                what: `<p>A probabilistic translator using a locally hosted, fine-tuned LLM. A "Prompt Engineering Module" constructs a detailed prompt including:</p>
+                       <ul>
+                         <li><b>Role & Goal:</b> "You are an expert Go developer..."</li>
+                         <li><b>Structured Context:</b> The full JSON IR.</li>
+                         <li><b>Few-Shot Examples:</b> Relevant examples from a knowledge base (RAG).</li>
+                         <li><b>Explicit Constraints:</b> "Always use context.Context", "Check every error".</li>
+                       </ul>`,
+                why: '<p>The LLM excels at handling the "long-tail" of edge cases, refactoring complex logic, and generating *idiomatic* Go code that leverages language best practices. It provides the flexibility and semantic understanding that rules lack, enabling automation coverage to exceed 95%.</p>'
+            },
+            'go-snippet': {
+                title: 'Generated Go Code Snippet',
+                what: '<p>A string of Go code produced by either the rule-based engine or the LLM. This is the initial, unverified translation of the original Pro*C function logic.</p>',
+                why: '<p>This represents the raw output of the translation core. It is not yet trusted and is considered a "candidate" translation. It must pass through the final, rigorous verification phase to be considered production-ready.</p>'
+            },
+            'verification-loop': {
+                title: 'Compile-Test-Verify Loop',
+                what: `<p>An automated feedback loop that subjects the generated Go snippet to a series of checks:</p>
+                       <ul>
+                         <li><b>Compile & Lint:</b> The code is compiled with <code>go build</code> and checked with static analysis tools like <code>go vet</code>.</li>
+                         <li><b>Unit Test:</b> An auto-generated <code>_test.go</code> file is created to verify functional equivalence.</li>
+                         <li><b>Error-Driven Regeneration:</b> If any check fails, the error message is fed back to the LLM's prompt with an instruction to "fix the error". This loop repeats until the code passes.</li>
+                       </ul>`,
+                why: '<p>This is the most critical guardrail in the entire architecture. It provides the necessary validation to trust the output of the probabilistic LLM, transforming it from an unreliable tool into a robust engineering system. This loop ensures a high degree of correctness and reliability in the final output.</p>'
+            },
+            'final-go': {
+                title: 'Final, Verified Go Code (.go)',
+                what: '<p>The final output of the pipeline. The Go code has been successfully compiled, linted, tested, and formatted according to Go community standards using <code>gofmt</code>.</p>',
+                why: '<p>This is the production-ready, modernized equivalent of the original Pro*C file. It is functionally equivalent, maintainable, secure, and ready to be integrated into the new cloud-native backend system, completing the migration for that unit of code.</p>'
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const modalBackdrop = document.getElementById('modal-backdrop');
+            const modalTitle = document.getElementById('modal-title');
+            const modalWhat = document.getElementById('modal-what');
+            const modalWhy = document.getElementById('modal-why');
+            const modalCloseBtn = document.getElementById('modal-close');
+            
+            document.querySelector('main').addEventListener('click', (event) => {
+                const stepElement = event.target.closest('.workflow-step');
+                if (stepElement) {
+                    const stepId = stepElement.dataset.step;
+                    const details = stepDetails[stepId];
+                    if (details) {
+                        modalTitle.textContent = details.title;
+                        modalWhat.innerHTML = details.what;
+                        modalWhy.innerHTML = details.why;
+                        modalBackdrop.classList.remove('hidden');
+                    }
+                }
+            });
+
+            const closeModal = () => {
+                modalBackdrop.classList.add('hidden');
+            };
+
+            modalCloseBtn.addEventListener('click', closeModal);
+            modalBackdrop.addEventListener('click', (event) => {
+                if (event.target === modalBackdrop) {
+                    closeModal();
+                }
+            });
+            
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' &&!modalBackdrop.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
