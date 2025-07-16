@@ -9,43 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-        }
-      .workflow-step {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            cursor: pointer;
-        }
-      .workflow-step:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-        }
-      .arrow {
-            width: 2px;
-            height: 40px;
-            background-color: #cbd5e1;
-            margin: 0 auto;
-            position: relative;
-        }
-      .arrow::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-top: 8px solid #cbd5e1;
-        }
-      .dashed-arrow {
-            position: relative;
-            height: 60px;
-        }
-      .dashed-arrow::before {
+        /* Workflow-specific styles that aren't in the shared CSS */
+        .dashed-arrow::before {
             content: '';
             position: absolute;
             top: 0;
@@ -54,7 +21,7 @@
             border-left: 2px dashed #94a3b8;
             height: 100%;
         }
-      .dashed-arrow::after {
+        .dashed-arrow::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -77,18 +44,6 @@
         #modal-body li {
             margin-bottom: 0.5rem;
         }
-     .nav-link {
-            transition: color 0.2s, border-bottom-color 0.2s;
-            border-bottom: 2px solid transparent;
-        }
-     .nav-link.active {
-            color: #2563eb;
-            border-bottom-color: #2563eb;
-            font-weight: 600;
-        }
-     .nav-link:not(.active):hover {
-            color: #3b82f6;
-        }
     </style>
 </head>
 <body class="text-slate-800">
@@ -104,15 +59,28 @@
                         <a href="./workflow.html" class="nav-link active px-1 py-2 text-sm font-medium">Interactive Workflow</a>
                     </div>
                 </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-slate-600 hover:text-slate-800 focus:outline-none focus:text-slate-800">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md rounded-lg mt-2">
+                    <a href="./index.html" class="nav-link block px-3 py-2 text-sm font-medium text-slate-600">Detailed Report</a>
+                    <a href="./workflow.html" class="nav-link active block px-3 py-2 text-sm font-medium">Interactive Workflow</a>
+                </div>
             </div>
         </nav>
     </header>
 
-<!--     <div class="flex flex-col h-[calc(100vh-4rem)]"> -->
-        <div class="flex flex-col">
+    <div class="flex flex-col h-[calc(100vh-4rem)]">
         <div class="bg-f8fafc z-30 pt-8 pb-4">
             <header class="text-center container mx-auto px-4">
-                <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900">AI-Augmented Migration Pipeline</h1>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900">AI-Augmented Migration <span
+                        class="bg-purple-100 border border-purple-300 px-3 py-1 rounded-full">Pipeline</span></h1>
                 <p class="mt-2 text-lg text-slate-600">An interactive view of the Pro*C to Go modernization process. Click any step to learn more.</p>
             </header>
         </div>
@@ -218,6 +186,19 @@
     </div>
 
     <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+
+        // Existing workflow functionality
         const stepDetails = {
             'proc-source': {
                 title: 'Pro*C Source Code (.pc)',
