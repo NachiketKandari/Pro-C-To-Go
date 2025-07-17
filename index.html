@@ -48,7 +48,7 @@
             <header class="text-center container mx-auto px-4">
                 <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900">AI-Augmented Migration <span
                         class="bg-blue-100 border border-blue-300 px-3 py-1 rounded-full">Strategy</span></h1>
-                <p class="mt-2 text-lg text-slate-600">Comprehensive approach to modernizing Pro*C systems with AI.</p>
+                <p class="mt-2 text-lg text-slate-600" id="main-subtitle">Comprehensive approach to modernizing Pro*C systems with AI.</p>
             </header>
         </div>
 
@@ -58,7 +58,7 @@
                 <div class="space-y-4" id="accordion-container">
                     <details class="bg-white rounded-xl shadow-lg overflow-hidden">
                         <summary class="p-6 flex justify-between items-center">
-                            <span class="text-xl font-bold">I. Strategic Framework</span>
+                            <span class="text-xl font-bold" id="section1-title">I. Strategic Framework</span>
                             <svg class="arrow-icon w-6 h-6 text-slate-500" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
@@ -66,9 +66,9 @@
                             </svg>
                         </summary>
                         <div class="accordion-content border-t border-slate-200 px-6 pb-6 pt-6">
-                            <h3 class="text-xl font-semibold">1.1. The Modernization Imperative: From Pro*C to
+                            <h3 class="text-xl font-semibold" id="modernization-title">1.1. The Modernization Imperative: From Pro*C to
                                 Cloud-Native Go</h3>
-                            <p class="mt-4 text-slate-700 leading-relaxed">The decision to migrate a backend system from
+                            <p class="mt-4 text-slate-700 leading-relaxed" id="modernization-content">The decision to migrate a backend system from
                                 Pro*C to Go is a strategic response to the accumulating technical debt inherent in
                                 legacy C-based environments. Pro*C presents challenges like manual memory management and
                                 a dependency on a multi-step, legacy build toolchain involving the Oracle Precompiler
@@ -85,10 +85,10 @@
                                     href="https://www.npmjs.com/package/@getlago%2Fpgsql-ast-parser" target="_blank"
                                     class="citation-link">3]</a></p>
 
-                            <h3 class="text-xl font-semibold">1.2. A Tale of Two Paradigms: Deterministic vs.
+                            <h3 class="text-xl font-semibold" id="paradigms-title">1.2. A Tale of Two Paradigms: Deterministic vs.
                                 Probabilistic Conversion</h3>
-                            <h4 class="text-lg font-medium">The Rule-Based Engine (Deterministic)</h4>
-                            <p class="mt-2 text-slate-700 leading-relaxed">This approach uses a transpiler to parse
+                            <h4 class="text-lg font-medium" id="rule-engine-title">The Rule-Based Engine (Deterministic)</h4>
+                            <p class="mt-2 text-slate-700 leading-relaxed" id="rule-engine-content">This approach uses a transpiler to parse
                                 Pro*C code into an Abstract Syntax Tree (AST) and applies deterministic rules to map
                                 constructs to Go.<a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html"
                                     target="_blank" class="citation-link">[1,</a> <a
@@ -96,8 +96,8 @@
                                     target="_blank" class="citation-link">5]</a> It's fast and reliable for common
                                 patterns but brittle against edge cases and often produces non-idiomatic code.</p>
 
-                            <h4 class="text-lg font-medium">The LLM-Powered Translator (Probabilistic)</h4>
-                            <p class="mt-2 text-slate-700 leading-relaxed">This approach leverages a Large Language
+                            <h4 class="text-lg font-medium" id="llm-translator-title">The LLM-Powered Translator (Probabilistic)</h4>
+                            <p class="mt-2 text-slate-700 leading-relaxed" id="llm-translator-content">This approach leverages a Large Language
                                 Model (LLM) to understand programmer intent and generate idiomatic Go code.<a
                                     href="https://aws.amazon.com/blogs/machine-learning/fine-tune-code-llama-on-amazon-sage"
                                     target="_blank" class="citation-link">[4,</a> <a
@@ -111,9 +111,9 @@
                                     href="https://www.sec.gov/Archives/edgar/data/1341439/000095017024075605/orcl-20240531.htm"
                                     target="_blank" class="citation-link">14]</a></p>
 
-                            <h3 class="text-xl font-semibold">1.3. The Hybrid Thesis: Combining Rules and Intelligence
+                            <h3 class="text-xl font-semibold" id="hybrid-title">1.3. The Hybrid Thesis: Combining Rules and Intelligence
                             </h3>
-                            <p class="mt-4 text-slate-700 leading-relaxed">The most effective strategy is a hybrid
+                            <p class="mt-4 text-slate-700 leading-relaxed" id="hybrid-content">The most effective strategy is a hybrid
                                 pipeline that integrates both paradigms. It uses the rule-based engine for speed and
                                 reliability on common patterns and the LLM as a sophisticated fallback for complex
                                 tasks.<a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html"
@@ -126,7 +126,7 @@
                                     target="_blank" class="citation-link">18]</a> This synergy maximizes automation
                                 coverage and code quality.</p>
 
-                            <h4 class="text-lg font-medium">Table 1: Comparison of Migration Strategies</h4>
+                            <h4 class="text-lg font-medium" id="table1-title">Table 1: Comparison of Migration Strategies</h4>
                             <div class="overflow-x-auto">
                                 <table>
                                     <thead>
@@ -170,7 +170,7 @@
 
                     <details class="bg-white rounded-xl shadow-lg overflow-hidden">
                         <summary class="p-6 flex justify-between items-center">
-                            <span class="text-xl font-bold">II. Architectural Blueprint</span>
+                            <span class="text-xl font-bold" id="section2-title">II. Architectural Blueprint</span>
                             <svg class="arrow-icon w-6 h-6 text-slate-500" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
@@ -178,12 +178,12 @@
                             </svg>
                         </summary>
                         <div class="accordion-content border-t border-slate-200 px-6 pb-6 pt-6">
-                            <p class="mt-4 text-slate-700 leading-relaxed">The proposed architecture is a multi-phase
+                            <p class="mt-4 text-slate-700 leading-relaxed" id="architectural-intro">The proposed architecture is a multi-phase
                                 pipeline designed to systematically deconstruct Pro*C code, translate it into Go, and
                                 rigorously verify the result.</p>
 
-                            <h3 class="text-xl font-semibold">2.1. Phase 1: Static Analysis and Metadata Extraction</h3>
-                            <p class="mt-4 text-slate-700 leading-relaxed">This phase converts unstructured Pro*C source
+                            <h3 class="text-xl font-semibold" id="phase1-title">2.1. Phase 1: Static Analysis and Metadata Extraction</h3>
+                            <p class="mt-4 text-slate-700 leading-relaxed" id="phase1-content">This phase converts unstructured Pro*C source
                                 code into a structured, machine-readable JSON format (Intermediate Representation or
                                 IR). It uses Oracle's <code>proc</code> precompiler to isolate SQL <a
                                     href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank"
@@ -201,8 +201,8 @@
   "host_vars": [...]
 }</code></pre>
 
-                            <h3 class="text-xl font-semibold">2.2. Phase 2: The Hybrid Translation Core</h3>
-                            <p class="mt-4 text-slate-700 leading-relaxed">This is the heart of the pipeline. An
+                            <h3 class="text-xl font-semibold" id="phase2-title">2.2. Phase 2: The Hybrid Translation Core</h3>
+                            <p class="mt-4 text-slate-700 leading-relaxed" id="phase2-content">This is the heart of the pipeline. An
                                 orchestrator routes the JSON IR to either the fast, deterministic rule engine for simple
                                 patterns or to the flexible LLM for complex cases.<a
                                     href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank"
@@ -214,8 +214,8 @@
                                 engineered prompt containing the JSON context, few-shot examples, and explicit
                                 constraints.</p>
 
-                            <h3 class="text-xl font-semibold">2.3. Phase 3: Synthesis and Iterative Verification</h3>
-                            <p class="mt-4 text-slate-700 leading-relaxed">The final phase ensures the generated Go code
+                            <h3 class="text-xl font-semibold" id="phase3-title">2.3. Phase 3: Synthesis and Iterative Verification</h3>
+                            <p class="mt-4 text-slate-700 leading-relaxed" id="phase3-content">The final phase ensures the generated Go code
                                 is correct and robust. A tight, automated <strong>Compile-Test-Verify Loop</strong>
                                 compiles the code, runs static analysis, and executes auto-generated unit tests.<a
                                     href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank"
@@ -230,7 +230,7 @@
 
                     <details class="bg-white rounded-xl shadow-lg overflow-hidden">
                         <summary class="p-6 flex justify-between items-center">
-                            <span class="text-xl font-bold">III. The Language Model Core</span>
+                            <span class="text-xl font-bold" id="section3-title">III. The Language Model Core</span>
                             <svg class="arrow-icon w-6 h-6 text-slate-500" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
@@ -238,8 +238,8 @@
                             </svg>
                         </summary>
                         <div class="accordion-content border-t border-slate-200 px-6 pb-6 pt-6">
-                            <h3 class="text-xl font-semibold">3.1. Model Selection and Local Deployment</h3>
-                            <p class="mt-4 text-slate-700 leading-relaxed">The strategy requires a locally hosted,
+                            <h3 class="text-xl font-semibold" id="model-selection-title">3.1. Model Selection and Local Deployment</h3>
+                            <p class="mt-4 text-slate-700 leading-relaxed" id="model-selection-content">The strategy requires a locally hosted,
                                 open-source model (13-15B parameters) like <a
                                     href="https://huggingface.co/TheBloke/Code-13B-GGUF" target="_blank"
                                     class="citation-link">CodeLlama</a>, <a
@@ -257,11 +257,11 @@
                                     target="_blank" class="citation-link">Ollama</a> for the PoC and move to a
                                 high-performance server like vLLM for production.</p>
 
-                            <h3 class="text-xl font-semibold">3.2. Enhancing Accuracy: Fine-Tuning and RAG</h3>
-                            <p class="mt-4 text-slate-700 leading-relaxed">An off-the-shelf model won't be an expert in
+                            <h3 class="text-xl font-semibold" id="enhancing-title">3.2. Enhancing Accuracy: Fine-Tuning and RAG</h3>
+                            <p class="mt-4 text-slate-700 leading-relaxed" id="enhancing-intro">An off-the-shelf model won't be an expert in
                                 Pro*C. Its accuracy must be enhanced using two key techniques:</p>
                             <ul>
-                                <li class="mt-2"><strong>PEFT (QLoRA):</strong> Using methods like QLoRA, the model is
+                                <li class="mt-2" id="peft-content"><strong>PEFT (QLoRA):</strong> Using methods like QLoRA, the model is
                                     adapted to the specific Pro*C-to-Go translation task on a curated dataset of
                                     examples.<a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html"
                                         target="_blank" class="citation-link">[1,</a> <a
@@ -271,7 +271,7 @@
                                         target="_blank" class="citation-link">34,</a> <a
                                         href="https://www.sec.gov/Archives/edgar/data/1341439/000119312524226139/d860928ddef14a.htm"
                                         target="_blank" class="citation-link">35]</a></li>
-                                <li class="mt-2"><strong>RAG:</strong> During translation, a knowledge base of canonical
+                                <li class="mt-2" id="rag-content"><strong>RAG:</strong> During translation, a knowledge base of canonical
                                     examples is searched for the most relevant patterns. These are injected into the
                                     LLM's prompt, providing a "just-in-time" cheat sheet that dramatically improves
                                     output quality.<a
@@ -283,7 +283,7 @@
 
                     <details class="bg-white rounded-xl shadow-lg overflow-hidden">
                         <summary class="p-6 flex justify-between items-center">
-                            <span class="text-xl font-bold">IV. Go Ecosystem Integration</span>
+                            <span class="text-xl font-bold" id="section4-title">IV. Go Ecosystem Integration</span>
                             <svg class="arrow-icon w-6 h-6 text-slate-500" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
@@ -291,8 +291,8 @@
                             </svg>
                         </summary>
                         <div class="accordion-content border-t border-slate-200 px-6 pb-6 pt-6">
-                            <h3 class="text-xl font-semibold">4.1. The Database Access Layer (DAL)</h3>
-                            <p class="mt-4 text-slate-700 leading-relaxed">The choice of database libraries is critical.
+                            <h3 class="text-xl font-semibold" id="dal-title">4.1. The Database Access Layer (DAL)</h3>
+                            <p class="mt-4 text-slate-700 leading-relaxed" id="dal-content">The choice of database libraries is critical.
                                 Since the popular <code>sqlc</code> tool does not support Oracle <a
                                     href="https://www.sqliz.com/posts/golang-gorm-oracle/" target="_blank"
                                     class="citation-link">[49,</a> <a
@@ -318,8 +318,8 @@
                                     href="https://www.cdata.com/kb/tech/oracledb-odbc-go-linux.rst" target="_blank"
                                     class="citation-link">48]</a></p>
 
-                            <h3 class="text-xl font-semibold">4.2. Handling Pro*C Idioms in Go</h3>
-                            <p class="mt-4 text-slate-700 leading-relaxed">A significant part of the translation
+                            <h3 class="text-xl font-semibold" id="idioms-title">4.2. Handling Pro*C Idioms in Go</h3>
+                            <p class="mt-4 text-slate-700 leading-relaxed" id="idioms-content">A significant part of the translation
                                 involves mapping Pro*C-specific idioms to modern Go equivalents. This includes
                                 converting <code>WHENEVER SQLERROR</code> directives to explicit
                                 <code>if err!= nil</code> checks, handling database <code>NULL</code> values with Go's
@@ -334,7 +334,7 @@
 
                     <details class="bg-white rounded-xl shadow-lg overflow-hidden">
                         <summary class="p-6 flex justify-between items-center">
-                            <span class="text-xl font-bold">V. Implementation Roadmap & PoC</span>
+                            <span class="text-xl font-bold" id="section5-title">V. Implementation Roadmap & PoC</span>
                             <svg class="arrow-icon w-6 h-6 text-slate-500" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
@@ -342,16 +342,16 @@
                             </svg>
                         </summary>
                         <div class="accordion-content border-t border-slate-200 px-6 pb-6 pt-6">
-                            <h3 class="text-xl font-semibold">5.1. A Phased Migration Strategy</h3>
-                            <p class="mt-4 text-slate-700 leading-relaxed">The project is structured into a five-quarter
+                            <h3 class="text-xl font-semibold" id="phased-title">5.1. A Phased Migration Strategy</h3>
+                            <p class="mt-4 text-slate-700 leading-relaxed" id="phased-content">The project is structured into a five-quarter
                                 roadmap, starting with foundational tool development and culminating in the
                                 decommissioning of the legacy system. This phased approach allows for incremental
                                 progress and risk management.<a
                                     href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank"
                                     class="citation-link">[1]</a></p>
 
-                            <h3 class="text-xl font-semibold">5.2. De-risking the Project: A Proof of Concept (PoC)</h3>
-                            <p class="mt-4 text-slate-700 leading-relaxed">Before full commitment, a short, focused
+                            <h3 class="text-xl font-semibold" id="poc-title">5.2. De-risking the Project: A Proof of Concept (PoC)</h3>
+                            <p class="mt-4 text-slate-700 leading-relaxed" id="poc-content">Before full commitment, a short, focused
                                 Proof of Concept is essential to validate the core technical assumptions.<a
                                     href="https://dl.acm.org/doi/10.1145/3644032.3644462" target="_blank"
                                     class="citation-link">[63,</a> <a
@@ -365,7 +365,7 @@
                                     href="https://ieeexplore.ieee.org/document/9474170/" target="_blank"
                                     class="citation-link">67]</a></p>
 
-                            <h4 class="text-lg font-medium">Table 5: Proof of Concept (PoC) Success Criteria</h4>
+                            <h4 class="text-lg font-medium" id="table5-title">Table 5: Proof of Concept (PoC) Success Criteria</h4>
                             <div class="overflow-x-auto">
                                 <table>
                                     <thead>
@@ -406,8 +406,164 @@
     </div>
 
     <script>
+        // ==============================================
+        // TEXT CONTENT CONSTANTS - EASY TO EDIT
+        // ==============================================
+        
+        const CONTENT = {
+            // Page Header
+            pageSubtitle: "Comprehensive approach to modernizing Pro*C systems with AI.",
+            
+            // Section Titles
+            sectionTitles: {
+                strategic: "I. Strategic Framework",
+                architectural: "II. Architectural Blueprint", 
+                llmCore: "III. The Language Model Core",
+                goEcosystem: "IV. Go Ecosystem Integration",
+                implementation: "V. Implementation Roadmap & PoC"
+            },
+            
+            // Strategic Framework Section
+            strategic: {
+                modernization: {
+                    title: "1.1. The Modernization Imperative: From Pro*C to Cloud-Native Go",
+                    content: `The decision to migrate a backend system from Pro*C to Go is a strategic response to the accumulating technical debt inherent in legacy C-based environments. Pro*C presents challenges like manual memory management and a dependency on a multi-step, legacy build toolchain involving the Oracle Precompiler (<code>proc</code>) followed by a standard C compiler like <code>gcc</code>.<a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank" class="citation-link">[1]</a> In contrast, Go offers automatic garbage collection, powerful built-in concurrency through goroutines and channels <a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank" class="citation-link">[1,</a> <a href="https://gorm.io/docs/migration.html" target="_blank" class="citation-link">2]</a>, and a streamlined developer experience, making it an ideal target for modernization.<a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank" class="citation-link">[1,</a> <a href="https://www.npmjs.com/package/@getlago%2Fpgsql-ast-parser" target="_blank" class="citation-link">3]</a>`
+                },
+                paradigms: {
+                    title: "1.2. A Tale of Two Paradigms: Deterministic vs. Probabilistic Conversion",
+                    ruleEngine: {
+                        title: "The Rule-Based Engine (Deterministic)",
+                        content: `This approach uses a transpiler to parse Pro*C code into an Abstract Syntax Tree (AST) and applies deterministic rules to map constructs to Go.<a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank" class="citation-link">[1,</a> <a href="https://www.sec.gov/Archives/edgar/data/1920294/000095017024139115/424b4.htm" target="_blank" class="citation-link">5]</a> It's fast and reliable for common patterns but brittle against edge cases and often produces non-idiomatic code.`
+                    },
+                    llmTranslator: {
+                        title: "The LLM-Powered Translator (Probabilistic)",
+                        content: `This approach leverages a Large Language Model (LLM) to understand programmer intent and generate idiomatic Go code.<a href="https://aws.amazon.com/blogs/machine-learning/fine-tune-code-llama-on-amazon-sage" target="_blank" class="citation-link">[4,</a> <a href="https://www.sec.gov/Archives/edgar/data/1920294/000095017024139115/424b4.htm" target="_blank" class="citation-link">12]</a> It excels at handling complex logic and edge cases but is prone to non-determinism and "hallucinations" without robust verification.<a href="https://pkg.go.dev/github.com/chrislusf/gleam/sql/ast" target="_blank" class="citation-link">[9,</a> <a href="https://www.sec.gov/Archives/edgar/data/1341439/000156459022023675/orcl-10k_20220531.htm" target="_blank" class="citation-link">13,</a> <a href="https://www.sec.gov/Archives/edgar/data/1341439/000095017024075605/orcl-20240531.htm" target="_blank" class="citation-link">14]</a>`
+                    }
+                },
+                hybrid: {
+                    title: "1.3. The Hybrid Thesis: Combining Rules and Intelligence",
+                    content: `The most effective strategy is a hybrid pipeline that integrates both paradigms. It uses the rule-based engine for speed and reliability on common patterns and the LLM as a sophisticated fallback for complex tasks.<a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank" class="citation-link">[1,</a> <a href="https://www.sec.gov/Archives/edgar/data/1341439/000156459022039278/orcl-10q_20221130.htm" target="_blank" class="citation-link">16,</a> <a href="https://www.sec.gov/Archives/edgar/data/1341439/000156459021012539/orcl-10q_20210228.htm" target="_blank" class="citation-link">17,</a> <a href="https://www.semanticscholar.org/paper/10c9fd364ca7c495105c49328ab1de73eb98c8e8" target="_blank" class="citation-link">18]</a> This synergy maximizes automation coverage and code quality.`
+                },
+                tableTitle: "Table 1: Comparison of Migration Strategies"
+            },
+            
+            // Architectural Blueprint Section
+            architectural: {
+                intro: "The proposed architecture is a multi-phase pipeline designed to systematically deconstruct Pro*C code, translate it into Go, and rigorously verify the result.",
+                phase1: {
+                    title: "2.1. Phase 1: Static Analysis and Metadata Extraction",
+                    content: `This phase converts unstructured Pro*C source code into a structured, machine-readable JSON format (Intermediate Representation or IR). It uses Oracle's <code>proc</code> precompiler to isolate SQL <a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank" class="citation-link">[1,</a> <a href="https://www.sec.gov/Archives/edgar/data/1920294/000095017024139115/424b4.htm" target="_blank" class="citation-link">5]</a>, then parses the resulting C code with a robust parser like <code>libclang</code> <a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank" class="citation-link">[1]</a> to build an AST and extract all necessary context.`
+                },
+                phase2: {
+                    title: "2.2. Phase 2: The Hybrid Translation Core",
+                    content: `This is the heart of the pipeline. An orchestrator routes the JSON IR to either the fast, deterministic rule engine for simple patterns or to the flexible LLM for complex cases.<a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank" class="citation-link">[1,</a> <a href="https://aws.amazon.com/blogs/machine-learning/fine-tune-code-llama-on-amazon-sage" target="_blank" class="citation-link">4,</a> <a href="https://www.sec.gov/Archives/edgar/data/1341439/000156459022039278/orcl-10q_20221130.htm" target="_blank" class="citation-link">16]</a> The LLM is guided by a carefully engineered prompt containing the JSON context, few-shot examples, and explicit constraints.`
+                },
+                phase3: {
+                    title: "2.3. Phase 3: Synthesis and Iterative Verification",
+                    content: `The final phase ensures the generated Go code is correct and robust. A tight, automated <strong>Compile-Test-Verify Loop</strong> compiles the code, runs static analysis, and executes auto-generated unit tests.<a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank" class="citation-link">[1,</a> <a href="https://www.sec.gov/Archives/edgar/data/1341439/000095017023028914/orcl-20230531.htm" target="_blank" class="citation-link">13,</a> <a href="https://www.semanticscholar.org/paper/20e9b8de00fc80570e5d3ef8c5bcdad866463cc5" target="_blank" class="citation-link">25]</a> If any step fails, the error is fed back to the LLM for self-correction, ensuring high reliability.`
+                }
+            },
+            
+            // LLM Core Section
+            llmCore: {
+                modelSelection: {
+                    title: "3.1. Model Selection and Local Deployment",
+                    content: `The strategy requires a locally hosted, open-source model (13-15B parameters) like <a href="https://huggingface.co/TheBloke/Code-13B-GGUF" target="_blank" class="citation-link">CodeLlama</a>, <a href="https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/starcoder2_15b" target="_blank" class="citation-link">StarCoder2</a>, or <a href="https://fireworks.ai/models/fireworks/deepseek-coder-7b-base" target="_blank" class="citation-link">DeepSeek-Coder</a> to ensure code privacy.<a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank" class="citation-link">[1,</a> <a href="https://www.sec.gov/Archives/edgar/data/1341439/000095017023028914/orcl-20230531.htm" target="_blank" class="citation-link">13,</a> <a href="https://www.godofprompt.ai/blog/local-llm-setup-for-privacy-conscious-businesses" target="_blank" class="citation-link">26]</a> Deployment can start with a simple tool like <a href="https://coolify.io/docs/knowledge-base/how-to/ollama-with-gpu" target="_blank" class="citation-link">Ollama</a> for the PoC and move to a high-performance server like vLLM for production.`
+                },
+                enhancing: {
+                    title: "3.2. Enhancing Accuracy: Fine-Tuning and RAG",
+                    intro: "An off-the-shelf model won't be an expert in Pro*C. Its accuracy must be enhanced using two key techniques:",
+                    peft: `<strong>PEFT (QLoRA):</strong> Using methods like QLoRA, the model is adapted to the specific Pro*C-to-Go translation task on a curated dataset of examples.<a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank" class="citation-link">[1,</a> <a href="https://www.sec.gov/Archives/edgar/data/1341439/000156459023003413/orcl-10g_20230228.htm" target="_blank" class="citation-link">15,</a> <a href="https://www.sec.gov/Archives/edgar/data/1341439/000119312524226139/d860928ddef14a.htm" target="_blank" class="citation-link">34,</a> <a href="https://www.sec.gov/Archives/edgar/data/1341439/000119312524226139/d860928ddef14a.htm" target="_blank" class="citation-link">35]</a>`,
+                    rag: `<strong>RAG:</strong> During translation, a knowledge base of canonical examples is searched for the most relevant patterns. These are injected into the LLM's prompt, providing a "just-in-time" cheat sheet that dramatically improves output quality.<a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank" class="citation-link">[1]</a>`
+                }
+            },
+            
+            // Go Ecosystem Section
+            goEcosystem: {
+                dal: {
+                    title: "4.1. The Database Access Layer (DAL)",
+                    content: `The choice of database libraries is critical. Since the popular <code>sqlc</code> tool does not support Oracle <a href="https://www.sqliz.com/posts/golang-gorm-oracle/" target="_blank" class="citation-link">[49,</a> <a href="https://www.oracle.com/developer/working-in-go-applications-with-oracle-database-and-oracle-cloud-autonomous-database/" target="_blank" class="citation-link">50]</a>, the recommended approach is a hybrid DAL strategy using <a href="https://go.libhunt.com/sqlc-alternatives" target="_blank" class="citation-link"><code>xo</code></a> to generate the bulk of the DAL from the schema <a href="https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/cdw-connect-go-install-go-and-godror.html" target="_blank" class="citation-link">[2]</a>, supplemented by template-based generation <a href="https://www.reddit.com/r/golang/comments/z60jd4/oracle_orm/" target="_blank" class="citation-link"></a> and the <a href="https://www.sec.gov/Archives/edgar/data/1854275/000121390025059675/ea0246595-10k_zoomcar.htm" target="_blank" class="citation-link"><code>Squirrel</code></a> query builder for dynamic queries <a href="https://www.sec.gov/Archives/edgar/data/1854275/000121390025059675/ea0246595-10k_zoomcar.htm" target="_blank" class="citation-link">[3]</a>. For the underlying driver, <a href="https://pkg.go.dev/github.com/godror/godror" target="_blank" class="citation-link"><code>godror</code></a> is recommended for its reliability and compatibility.<a href="https://www.semanticscholar.org/paper/20e9b8de00fc80570e5d3ef8c5bcdad866463cc5" target="_blank" class="citation-link">[26,</a> <a href="https://www.cdata.com/kb/tech/oracledb-odbc-go-linux.rst" target="_blank" class="citation-link">48]</a>`
+                },
+                idioms: {
+                    title: "4.2. Handling Pro*C Idioms in Go",
+                    content: `A significant part of the translation involves mapping Pro*C-specific idioms to modern Go equivalents. This includes converting <code>WHENEVER SQLERROR</code> directives to explicit <code>if err!= nil</code> checks, handling database <code>NULL</code> values with Go's <code>sql.Null*</code> types <a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank" class="citation-link">[1,</a> <a href="https://www.sec.gov/Archives/edgar/data/313143/000031314325000025/hae-20250329_htm.xml" target="_blank" class="citation-link">56]</a>, and safely translating dynamic SQL using parameterized queries to prevent injection vulnerabilities.`
+                }
+            },
+            
+            // Implementation Section
+            implementation: {
+                phased: {
+                    title: "5.1. A Phased Migration Strategy",
+                    content: `The project is structured into a five-quarter roadmap, starting with foundational tool development and culminating in the decommissioning of the legacy system. This phased approach allows for incremental progress and risk management.<a href="http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html" target="_blank" class="citation-link">[1]</a>`
+                },
+                poc: {
+                    title: "5.2. De-risking the Project: A Proof of Concept (PoC)",
+                    content: `Before full commitment, a short, focused Proof of Concept is essential to validate the core technical assumptions.<a href="https://dl.acm.org/doi/10.1145/3644032.3644462" target="_blank" class="citation-link">[63,</a> <a href="https://pubs.acs.org/doi/10.1021/acs.jctc.7b00174" target="_blank" class="citation-link">64]</a> The PoC will target a small but representative set of Pro*C files to test the end-to-end pipeline and measure its effectiveness against predefined success criteria.<a href="https://ieeexplore.ieee.org/document/9712582/" target="_blank" class="citation-link">[65,</a> <a href="https://www.semanticscholar.org/paper/aa093ada88d6af90a09d97d1f68eeac344d14938" target="_blank" class="citation-link">66,</a> <a href="https://ieeexplore.ieee.org/document/9474170/" target="_blank" class="citation-link">67]</a>`
+                },
+                tableTitle: "Table 5: Proof of Concept (PoC) Success Criteria"
+            }
+        };
+
+        // Function to populate content from variables
+        function populateContent() {
+            // Update page subtitle
+            document.getElementById('main-subtitle').innerHTML = CONTENT.pageSubtitle;
+            
+            // Update section titles
+            document.getElementById('section1-title').innerHTML = CONTENT.sectionTitles.strategic;
+            document.getElementById('section2-title').innerHTML = CONTENT.sectionTitles.architectural;
+            document.getElementById('section3-title').innerHTML = CONTENT.sectionTitles.llmCore;
+            document.getElementById('section4-title').innerHTML = CONTENT.sectionTitles.goEcosystem;
+            document.getElementById('section5-title').innerHTML = CONTENT.sectionTitles.implementation;
+            
+            // Strategic Framework Section
+            document.getElementById('modernization-title').innerHTML = CONTENT.strategic.modernization.title;
+            document.getElementById('modernization-content').innerHTML = CONTENT.strategic.modernization.content;
+            document.getElementById('paradigms-title').innerHTML = CONTENT.strategic.paradigms.title;
+            document.getElementById('rule-engine-title').innerHTML = CONTENT.strategic.paradigms.ruleEngine.title;
+            document.getElementById('rule-engine-content').innerHTML = CONTENT.strategic.paradigms.ruleEngine.content;
+            document.getElementById('llm-translator-title').innerHTML = CONTENT.strategic.paradigms.llmTranslator.title;
+            document.getElementById('llm-translator-content').innerHTML = CONTENT.strategic.paradigms.llmTranslator.content;
+            document.getElementById('hybrid-title').innerHTML = CONTENT.strategic.hybrid.title;
+            document.getElementById('hybrid-content').innerHTML = CONTENT.strategic.hybrid.content;
+            document.getElementById('table1-title').innerHTML = CONTENT.strategic.tableTitle;
+            
+            // Architectural Blueprint Section
+            document.getElementById('architectural-intro').innerHTML = CONTENT.architectural.intro;
+            document.getElementById('phase1-title').innerHTML = CONTENT.architectural.phase1.title;
+            document.getElementById('phase1-content').innerHTML = CONTENT.architectural.phase1.content;
+            document.getElementById('phase2-title').innerHTML = CONTENT.architectural.phase2.title;
+            document.getElementById('phase2-content').innerHTML = CONTENT.architectural.phase2.content;
+            document.getElementById('phase3-title').innerHTML = CONTENT.architectural.phase3.title;
+            document.getElementById('phase3-content').innerHTML = CONTENT.architectural.phase3.content;
+            
+            // LLM Core Section
+            document.getElementById('model-selection-title').innerHTML = CONTENT.llmCore.modelSelection.title;
+            document.getElementById('model-selection-content').innerHTML = CONTENT.llmCore.modelSelection.content;
+            document.getElementById('enhancing-title').innerHTML = CONTENT.llmCore.enhancing.title;
+            document.getElementById('enhancing-intro').innerHTML = CONTENT.llmCore.enhancing.intro;
+            document.getElementById('peft-content').innerHTML = CONTENT.llmCore.enhancing.peft;
+            document.getElementById('rag-content').innerHTML = CONTENT.llmCore.enhancing.rag;
+            
+            // Go Ecosystem Section
+            document.getElementById('dal-title').innerHTML = CONTENT.goEcosystem.dal.title;
+            document.getElementById('dal-content').innerHTML = CONTENT.goEcosystem.dal.content;
+            document.getElementById('idioms-title').innerHTML = CONTENT.goEcosystem.idioms.title;
+            document.getElementById('idioms-content').innerHTML = CONTENT.goEcosystem.idioms.content;
+            
+            // Implementation Section
+            document.getElementById('phased-title').innerHTML = CONTENT.implementation.phased.title;
+            document.getElementById('phased-content').innerHTML = CONTENT.implementation.phased.content;
+            document.getElementById('poc-title').innerHTML = CONTENT.implementation.poc.title;
+            document.getElementById('poc-content').innerHTML = CONTENT.implementation.poc.content;
+            document.getElementById('table5-title').innerHTML = CONTENT.implementation.tableTitle;
+        }
+
         // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', () => {
+            // Populate content from variables
+            populateContent();
+            
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
@@ -435,11 +591,7 @@
                                     otherDetails.open = false;
                                 }
                             });
-
-                            // Toggle the clicked one
-                            if (!currentlyOpen) {
-                                details.open = true;
-                            }
+                            details.open = !currentlyOpen;
                         }
                     });
                 });
