@@ -79,16 +79,16 @@
     <div class="flex flex-col h-[calc(100vh-4rem)]">
         <div class="bg-f8fafc z-30 pt-8 pb-4">
             <header class="text-center container mx-auto px-4">
-                <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900">AI-Augmented Migration <span
+                <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900" id="main-title">AI-Augmented Migration <span
                         class="bg-purple-100 border border-purple-300 px-3 py-1 rounded-full">Pipeline</span></h1>
-                <p class="mt-2 text-lg text-slate-600">An interactive view of the Pro*C to Go modernization process. Click any step to learn more.</p>
+                <p class="mt-2 text-lg text-slate-600" id="main-subtitle">An interactive view of the Pro*C to Go modernization process. Click any step to learn more.</p>
             </header>
         </div>
 
         <main class="flex-grow overflow-y-auto p-4 md:p-8">
             <div class="max-w-4xl mx-auto">
                 <div class="mb-8">
-                    <h2 class="text-2xl font-semibold text-center text-blue-700 mb-6 pb-2 border-b-2 border-blue-200">Phase 1: Static Analysis & Metadata Extraction</h2>
+                    <h2 class="text-2xl font-semibold text-center text-blue-700 mb-6 pb-2 border-b-2 border-blue-200" id="phase1-title">Phase 1: Static Analysis & Metadata Extraction</h2>
                     <div class="workflow-step bg-white p-4 rounded-lg shadow-md text-center" data-step="proc-source">
                         <h3 class="font-semibold">Pro*C Source Code (.pc file)</h3>
                         <p class="text-sm text-slate-500">The starting point: legacy code with embedded SQL.</p>
@@ -117,7 +117,7 @@
 
                 <div class="mb-8">
                     <div class="arrow"></div>
-                    <h2 class="text-2xl font-semibold text-center text-purple-700 my-6 pb-2 border-b-2 border-purple-200">Phase 2: The Hybrid Translation Core</h2>
+                    <h2 class="text-2xl font-semibold text-center text-purple-700 my-6 pb-2 border-b-2 border-purple-200" id="phase2-title">Phase 2: The Hybrid Translation Core</h2>
                     <div class="workflow-step bg-purple-100 border border-purple-300 p-4 rounded-lg shadow-md text-center" data-step="orchestrator">
                         <h3 class="font-semibold">Orchestrator</h3>
                         <p class="text-sm text-slate-500">Intelligently routes tasks based on complexity.</p>
@@ -151,7 +151,7 @@
                 
                 <div>
                     <div class="arrow"></div>
-                    <h2 class="text-2xl font-semibold text-center text-teal-700 my-6 pb-2 border-b-2 border-teal-200">Phase 3: Synthesis & Iterative Verification</h2>
+                    <h2 class="text-2xl font-semibold text-center text-teal-700 my-6 pb-2 border-b-2 border-teal-200" id="phase3-title">Phase 3: Synthesis & Iterative Verification</h2>
                     <div class="workflow-step bg-teal-100 border border-teal-300 p-4 rounded-lg shadow-md text-center" data-step="verification-loop">
                         <h3 class="font-semibold">Compile-Test-Verify Loop</h3>
                         <p class="text-sm text-slate-500">An automated feedback loop to ensure correctness.</p>
@@ -186,6 +186,69 @@
     </div>
 
     <script>
+        // ==============================================
+        // TEXT CONTENT CONSTANTS - EASY TO EDIT
+        // ==============================================
+        
+        // Page Header Content
+        const CONTENT = {
+            pageTitle: "AI-Augmented Migration Pipeline",
+            pageSubtitle: "An interactive view of the Pro*C to Go modernization process. Click any step to learn more.",
+            
+            // Phase Titles
+            phase1Title: "Phase 1: Static Analysis & Metadata Extraction",
+            phase2Title: "Phase 2: The Hybrid Translation Core", 
+            phase3Title: "Phase 3: Synthesis & Iterative Verification",
+            
+            // Workflow Step Titles and Descriptions
+            steps: {
+                'proc-source': {
+                    title: 'Pro*C Source Code (.pc file)',
+                    description: 'The starting point: legacy code with embedded SQL.'
+                },
+                'oracle-proc': {
+                    title: 'Oracle Precompiler (`proc`)',
+                    description: 'Separates SQL from C code.'
+                },
+                'c-stubs': {
+                    title: 'Generated C Code (.c file)',
+                    description: 'SQL is replaced with C function calls.'
+                },
+                'libclang': {
+                    title: 'C Parser (`libclang`)',
+                    description: 'Builds an Abstract Syntax Tree (AST) of the C code.'
+                },
+                'json-ir': {
+                    title: 'Canonical JSON Metadata (IR)',
+                    description: 'The final, structured output of the analysis phase.'
+                },
+                'orchestrator': {
+                    title: 'Orchestrator',
+                    description: 'Intelligently routes tasks based on complexity.'
+                },
+                'rule-engine': {
+                    title: 'Rule-Based "Fast Path"',
+                    description: 'For simple, common patterns.'
+                },
+                'llm-fallback': {
+                    title: 'LLM Fallback Path',
+                    description: 'For complex logic and edge cases.'
+                },
+                'go-snippet': {
+                    title: 'Generated Go Code Snippet',
+                    description: 'The raw output from the selected translation path.'
+                },
+                'verification-loop': {
+                    title: 'Compile-Test-Verify Loop',
+                    description: 'An automated feedback loop to ensure correctness.'
+                },
+                'final-go': {
+                    title: 'Final, Verified Go Code (.go file)',
+                    description: 'Production-ready, formatted, and tested Go module.'
+                }
+            }
+        };
+
         // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -198,7 +261,7 @@
             }
         });
 
-        // Existing workflow functionality
+        // Modal step details - detailed explanations for each workflow step
         const stepDetails = {
             'proc-source': {
                 title: 'Pro*C Source Code (.pc)',
@@ -279,7 +342,33 @@
             }
         };
 
+        // Function to populate content from variables
+        function populateContent() {
+            // Update page header
+            document.getElementById('main-subtitle').textContent = CONTENT.pageSubtitle;
+            
+            // Update phase titles
+            document.getElementById('phase1-title').textContent = CONTENT.phase1Title;
+            document.getElementById('phase2-title').textContent = CONTENT.phase2Title;
+            document.getElementById('phase3-title').textContent = CONTENT.phase3Title;
+            
+            // Update workflow step titles and descriptions
+            Object.keys(CONTENT.steps).forEach(stepId => {
+                const stepElement = document.querySelector(`[data-step="${stepId}"]`);
+                if (stepElement) {
+                    const titleElement = stepElement.querySelector('h3');
+                    const descElement = stepElement.querySelector('p');
+                    
+                    if (titleElement) titleElement.textContent = CONTENT.steps[stepId].title;
+                    if (descElement) descElement.textContent = CONTENT.steps[stepId].description;
+                }
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            // Populate content from variables
+            populateContent();
+            
             const modalBackdrop = document.getElementById('modal-backdrop');
             const modalTitle = document.getElementById('modal-title');
             const modalWhat = document.getElementById('modal-what');
