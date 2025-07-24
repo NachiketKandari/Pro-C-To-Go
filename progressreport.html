@@ -21,32 +21,24 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="./index.html" class="nav-link px-1 py-2 text-sm font-medium text-slate-600">Detailed
-                            Report</a>
-                        <a href="./workflow.html"
-                            class="nav-link px-1 py-2 text-sm font-medium text-slate-600">Interactive Workflow</a>
-                        <a href="./progressReport.html" class="nav-link active px-1 py-2 text-sm font-medium">Progress
-                            Report</a>
+                        <a href="./index.html" class="nav-link px-1 py-2 text-sm font-medium text-slate-600">Detailed Report</a>
+                        <a href="./workflow.html" class="nav-link px-1 py-2 text-sm font-medium text-slate-600">Interactive Workflow</a>
+                        <a href="./progressReport.html" class="nav-link active px-1 py-2 text-sm font-medium">Progress Report</a>
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button id="mobile-menu-button"
-                        class="text-slate-600 hover:text-slate-800 focus:outline-none focus:text-slate-800">
+                    <button id="mobile-menu-button" class="text-slate-600 hover:text-slate-800 focus:outline-none focus:text-slate-800">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
             </div>
             <div id="mobile-menu" class="md:hidden hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md rounded-lg mt-2">
-                    <a href="./index.html" class="nav-link block px-3 py-2 text-sm font-medium text-slate-600">Detailed
-                        Report</a>
-                    <a href="./workflow.html"
-                        class="nav-link block px-3 py-2 text-sm font-medium text-slate-600">Interactive Workflow</a>
-                    <a href="./progressReport.html" class="nav-link active block px-3 py-2 text-sm font-medium">Progress
-                        Report</a>
+                    <a href="./index.html" class="nav-link block px-3 py-2 text-sm font-medium text-slate-600">Detailed Report</a>
+                    <a href="./workflow.html" class="nav-link block px-3 py-2 text-sm font-medium text-slate-600">Interactive Workflow</a>
+                    <a href="./progressReport.html" class="nav-link active block px-3 py-2 text-sm font-medium">Progress Report</a>
                 </div>
             </div>
         </nav>
@@ -55,10 +47,8 @@
     <div class="flex flex-col min-h-screen">
         <div class="bg-gray-50 z-30 pt-8 pb-4">
             <header class="text-center container mx-auto px-4">
-                <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900">Migration Progress <span
-                        class="bg-green-100 border border-green-300 px-3 py-1 rounded-full">Report</span></h1>
-                <p class="mt-2 text-lg text-slate-600">Findings and analysis from the ongoing Pro*C to Go conversion
-                    efforts.</p>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900">Migration Progress <span class="bg-green-100 border border-green-300 px-3 py-1 rounded-full">Report</span></h1>
+                <p class="mt-2 text-lg text-slate-600">Findings and analysis from the ongoing Pro*C to Go conversion efforts.</p>
             </header>
         </div>
 
@@ -67,24 +57,16 @@
 
                 <div class="space-y-4" id="accordion-container">
                     <!-- Section: .pc to .c Conversion -->
-                    <details class="bg-white rounded-xl shadow-lg overflow-hidden">
+<details class="bg-white rounded-xl shadow-lg overflow-hidden">
                         <summary class="p-6 flex justify-between items-center">
                             <span class="text-xl font-bold">I. Pro*C to C Conversion Strategy</span>
-                            <svg class="arrow-icon w-6 h-6 text-slate-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                                </path>
+                            <svg class="arrow-icon w-6 h-6 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
                         </summary>
                         <div class="accordion-content border-t border-slate-200 px-6 pb-6 pt-6">
                             <h3 class="text-lg font-semibold">Oracle Precompiler (`proc`)</h3>
-                            <code
-                                class="mt-2 text-slate-700 leading-relaxed">The initial conversion step relies on Oracle's proprietary `proc` precompiler. <code>.pc</code>
-                            files, which contain embedded SQL, are processed by this tool. The primary function is to
-                            translate the <code>EXEC SQL</code>blocks into standard C function calls to Oracle's client
-                            libraries. Access to an environment with the Oracle precompiler (like 'arcos') is a
-                            prerequisite for this stage. This is a deterministic and necessary first step to get a
-                            standard C source file.</p>
+                            <p class="mt-2 text-slate-700 leading-relaxed">The initial conversion step relies on Oracle's proprietary `proc` precompiler. `.pc` files, which contain embedded SQL, are processed by this tool. The primary function is to translate the `EXEC SQL` blocks into standard C function calls to Oracle's client libraries. Access to an environment with the Oracle precompiler (like 'arcos') is a prerequisite for this stage. This is a deterministic and necessary first step to get a standard C source file.</p>
                         </div>
                     </details>
 
@@ -92,150 +74,91 @@
                     <details class="bg-white rounded-xl shadow-lg overflow-hidden">
                         <summary class="p-6 flex justify-between items-center">
                             <span class="text-xl font-bold">II. C to Go Conversion Strategies & Findings</span>
-                            <svg class="arrow-icon w-6 h-6 text-slate-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                                </path>
+                            <svg class="arrow-icon w-6 h-6 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
                         </summary>
                         <div class="accordion-content border-t border-slate-200 px-6 pb-6 pt-6 space-y-6">
                             <div>
                                 <h3 class="text-lg font-semibold">cxgo (Transpiler)</h3>
                                 <p class="mt-2 text-slate-700 leading-relaxed">
-                                    <code>cxgo</code> is a direct C-to-Go transpiler. More information can be found on
-                                    its <a href="https://github.com/gotranspile/cxgo" target="_blank"
-                                        class="text-indigo-600 hover:underline">GitHub page</a>.
+                                    `cxgo` is a direct C-to-Go transpiler. More information can be found on its <a href="https://github.com/gotranspile/cxgo" target="_blank" class="text-indigo-600 hover:underline">GitHub page</a>.
                                     The command used for conversion is straightforward:
                                 </p>
                                 <pre><code class="language-bash">cxgo file filename.c</code></pre>
                                 <h4 class="font-medium mt-4">Issues Encountered:</h4>
                                 <ul class="list-disc list-inside mt-2 text-slate-700 space-y-1">
-                                    <li><b>Header File Resolution:</b> It struggles to locate user-defined header files,
-                                        complicating the build process.</li>
-                                    <li><b>Unidiomatic Go Code:</b> A more severe issue is the nature of the transpiled
-                                        code. When tested with a C file rich in pointers and manual memory management,
-                                        <code>cxgo</code> Go code that mimicked C's memory management. This results in
-                                        code that, while syntactically valid Go, is idiomatically incorrect and unsafe,
-                                        requiring extensive manual refactoring to be usable.</li>
+                                    <li><b>Header File Resolution:</b> It struggles to locate user-defined header files, complicating the build process.</li>
+                                    <li><b>Unidiomatic Go Code:</b> A more severe issue is the nature of the transpiled code. When tested with a C file rich in pointers and manual memory management, `cxgo` produced Go code that mimicked C's memory management. This results in code that, while syntactically valid Go, is idiomatically incorrect and unsafe, requiring extensive manual refactoring to be usable.</li>
                                 </ul>
                             </div>
                             <hr>
                             <div>
                                 <h3 class="text-lg font-semibold">tree-sitter-c (Parser)</h3>
                                 <p class="mt-2 text-slate-700 leading-relaxed">
-                                    Tree-sitter is a parser generator tool with a pre-built C parser available via <a
-                                        href="https://github.com/tree-sitter/tree-sitter-c" target="_blank"
-                                        class="text-indigo-600 hover:underline">open source</a>. It generates an
-                                    Abstract Syntax Tree (AST) from the source code.
+                                    Tree-sitter is a parser generator tool with a pre-built C parser available via <a href="https://github.com/tree-sitter/tree-sitter-c" target="_blank" class="text-indigo-600 hover:underline">open source</a>. It generates an Abstract Syntax Tree (AST) from the source code.
                                     The command used for parsing is:
                                 </p>
                                 <pre><code class="language-bash">tree-sitter parse ../test.c > ../test_ast.txt</code></pre>
                                 <h4 class="font-medium mt-4">Issues Encountered:</h4>
                                 <ul class="list-disc list-inside mt-2 text-slate-700 space-y-1">
-                                    <li><b>Loss of Identifiers:</b> The generated AST (5,600 lines from a 1,100-line C
-                                        file) critically lacks the names of variables and functions. This makes the AST
-                                        abstract to the point where even an LLM would be guessing at the code's intent,
-                                        making it unsuitable for a high-fidelity conversion.</li>
+                                    <li><b>Loss of Identifiers:</b> The generated AST (5,600 lines from a 1,100-line C file) critically lacks the names of variables and functions. This makes the AST abstract to the point where even an LLM would be guessing at the code's intent, making it unsuitable for a high-fidelity conversion.</li>
                                 </ul>
                             </div>
-                            <hr>
+                             <hr>
                             <div>
                                 <h3 class="text-lg font-semibold">Clang (Compiler Front-End)</h3>
                                 <p class="mt-2 text-slate-700 leading-relaxed">
-                                    Using Clang as a front-end provides a much more detailed and accurate AST. It
-                                    retains all function and variable names, making it the most promising tool for
-                                    analysis.
+                                   Using Clang as a front-end provides a much more detailed and accurate AST. It retains all function and variable names, making it the most promising tool for analysis.
                                 </p>
                                 <h4 class="font-medium mt-4">Commands & Outputs:</h4>
-                                <ul class="list-disc list-inside mt-2 text-slate-700 space-y-2">
-                                    <li>To get the full AST:
-                                        <pre><code class="language-bash">clang -Xclang -ast-dump -fsyntax-only test.c</code></pre>
-                                    </li>
-                                    <li>To get the AST for a specific function:
-                                        <pre><code class="language-bash">clang -Xclang -ast-dump=json -Xclang -ast-dump-filter -Xclang main -fsyntax-only test.c</code></pre>
-                                    </li>
-                                    <li>To get the full AST in JSON format:
-                                        <pre><code class="language-bash">clang -Xclang -ast-dump=json -fsyntax-only test.c</code></pre>
-                                    </li>
-                                </ul>
-                                <h4 class="font-medium mt-4">Issues Encountered:</h4>
-                                <ul class="list-disc list-inside mt-2 text-slate-700 space-y-1">
-                                    <li><b>Excessive Output Size:</b> The primary blocker for Clang is the verbosity of
-                                        its output. A 1,100-line C file generates a 7400-line AST tree txt file and a
-                                        staggering 265,000-line JSON file. This size far exceeds the context window
-                                        (token limit) of any current Large Language Model, making it impossible to
-                                        process in a single pass.</li>
+                                 <ul class="list-disc list-inside mt-2 text-slate-700 space-y-2">
+                                     <li>To get the full AST: <pre><code class="language-bash">clang -Xclang -ast-dump -fsyntax-only test.c</code></pre></li>
+                                     <li>To get the AST for a specific function: <pre><code class="language-bash">clang -Xclang -ast-dump=json -Xclang -ast-dump-filter -Xclang main -fsyntax-only test.c</code></pre></li>
+                                     <li>To get the full AST in JSON format: <pre><code class="language-bash">clang -Xclang -ast-dump=json -fsyntax-only test.c</code></pre></li>
+                                 </ul>
+                                 <h4 class="font-medium mt-4">Issues Encountered:</h4>
+                                  <ul class="list-disc list-inside mt-2 text-slate-700 space-y-1">
+                                    <li><b>Excessive Output Size:</b> The primary blocker for Clang is the verbosity of its JSON output. A 1,100-line C file generates a staggering 265,000-line JSON file. This size far exceeds the context window (token limit) of any current Large Language Model, making it impossible to process in a single pass.</li>
                                 </ul>
                             </div>
                         </div>
                     </details>
-
+                    
                     <!-- Section: General Issues and Path Forward -->
-                    <details class="bg-white rounded-xl shadow-lg overflow-hidden">
+<details class="bg-white rounded-xl shadow-lg overflow-hidden">
                         <summary class="p-6 flex justify-between items-center">
                             <span class="text-xl font-bold">III. Proposed Path Forward</span>
-                            <svg class="arrow-icon w-6 h-6 text-slate-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                                </path>
+                            <svg class="arrow-icon w-6 h-6 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
                         </summary>
                         <div class="accordion-content border-t border-slate-200 px-6 pb-6 pt-6 space-y-6">
-                            <div>
+                             <div>
                                 <h3 class="text-lg font-semibold">The Intermediate Representation (IR) Challenge</h3>
-                                <p class="mt-2 text-slate-700 leading-relaxed">The analysis confirms that a direct
-                                    C-to-Go translation is fraught with issues. The most viable path involves converting
-                                    the C code into a structured Intermediate Representation (IR) that can then be
-                                    reliably translated to Go. Clang's AST is the best candidate for this IR because
-                                    it's the only method that preserves crucial information like variable and function
-                                    names. However, the sheer size of the JSON output makes it impractical for direct
-                                    use with LLMs. This is the central bottleneck that the proposed strategy must
-                                    address.</p>
-                            </div>
-                            <hr>
-                            <div>
+                                <p class="mt-2 text-slate-700 leading-relaxed">The analysis confirms that a direct C-to-Go translation is fraught with issues. The most viable path involves converting the C code into a structured Intermediate Representation (IR) that can then be reliably translated to Go. Clang's AST is the best candidate for this IR because it's the only method that preserves crucial information like variable and function names. However, the sheer size of the JSON output makes it impractical for direct use with LLMs. This is the central bottleneck that the proposed strategy must address.</p>
+                             </div>
+                             <hr>
+                             <div>
                                 <h3 class="text-lg font-semibold">Suggestion: Agentic, Divide-and-Conquer Approach</h3>
                                 <p class="mt-2 text-slate-700 leading-relaxed">
-                                    To overcome these challenges, an <strong>agentic AI model</strong> using a
-                                    <strong>divide-and-conquer</strong> strategy is proposed. Instead of attempting to
-                                    translate the entire codebase at once, the process is broken down into smaller,
-                                    manageable tasks handled by an intelligent agent.
+                                    To overcome these challenges, an <strong>agentic AI model</strong> using a <strong>divide-and-conquer</strong> strategy is proposed. Instead of attempting to translate the entire codebase at once, the process is broken down into smaller, manageable tasks handled by an intelligent agent.
                                 </p>
                                 <h4 class="font-medium mt-4">Core Workflow:</h4>
                                 <ol class="list-decimal list-inside mt-2 text-slate-700 space-y-2">
-                                    <li><b>Code Fragmentation:</b> The large C source file is first broken down into
-                                        logical chunks, primarily function by function. This can be achieved using a
-                                        simple parser or even Clang's ability to dump an AST for a single function. This
-                                        ensures each piece of code sent to the LLM is well within its token limit.</li>
-                                    <li><b>Chunked Translation:</b> The AI agent processes one function (or chunk) at a
-                                        time, performing a direct C-to-Go translation.</li>
-                                    <li><b>Handling Proprietary SQL Libraries:</b> This is the most complex part. Since
-                                        the original <code>.pc</code> code contained embedded SQL, the resulting C code contains
-                                        calls to Oracle-specific libraries that have no direct equivalent in Go's
-                                        standard library. The agent must handle this as follows:
+                                    <li><b>Code Fragmentation:</b> The large C source file is first broken down into logical chunks, primarily function by function. This can be achieved using a simple parser or even Clang's ability to dump an AST for a single function. This ensures each piece of code sent to the LLM is well within its token limit.</li>
+                                    <li><b>Chunked Translation:</b> The AI agent processes one function (or chunk) at a time, performing a direct C-to-Go translation.</li>
+                                    <li><b>Handling Proprietary SQL Libraries:</b> This is the most complex part. Since the original `.pc` code contained embedded SQL, the resulting C code contains calls to Oracle-specific libraries that have no direct equivalent in Go's standard library. The agent must handle this as follows:
                                         <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
-                                            <li><strong>Identify & Abstract:</strong> The agent identifies a call to a
-                                                proprietary C function (e.g., `EXEC SQL FETCH...`). It doesn't try to
-                                                translate the C library call directly. Instead, it determines the
-                                                *intent* of the code (e.g., "fetch the next row from a cursor").</li>
-                                            <li><strong>Generate Interface Calls:</strong> Based on the intent, the
-                                                agent generates Go code that calls a method on a modern Go Data Access
-                                                Layer (DAL) interface. For example, a C fetch loop would be converted
-                                                into a Go loop that calls `dal.FetchNextRow()`.</li>
-                                            <li><strong>Separate DAL Implementation:</strong> A developer, in parallel,
-                                                writes the actual Go DAL implementation using standard libraries like
-                                                `database/sql` and an appropriate Oracle driver (e.g., `godror`). This
-                                                DAL will satisfy the interface the AI agent is coding against.</li>
+                                            <li><strong>Identify & Abstract:</strong> The agent identifies a call to a proprietary C function (e.g., `EXEC SQL FETCH...`). It doesn't try to translate the C library call directly. Instead, it determines the *intent* of the code (e.g., "fetch the next row from a cursor").</li>
+                                            <li><strong>Generate Interface Calls:</strong> Based on the intent, the agent generates Go code that calls a method on a modern Go Data Access Layer (DAL) interface. For example, a C fetch loop would be converted into a Go loop that calls `dal.FetchNextRow()`.</li>
+                                            <li><strong>Separate DAL Implementation:</strong> A developer, in parallel, writes the actual Go DAL implementation using standard libraries like `database/sql` and an appropriate Oracle driver (e.g., `godror`). This DAL will satisfy the interface the AI agent is coding against.</li>
                                         </ul>
                                     </li>
-                                    <li><strong>Stitching & Verification:</strong> Once all chunks are translated, they
-                                        are stitched together into a complete Go file. This file can then be compiled
-                                        and tested to ensure correctness.</li>
+                                    <li><strong>Stitching & Verification:</strong> Once all chunks are translated, they are stitched together into a complete Go file. This file can then be compiled and tested to ensure correctness.</li>
                                 </ol>
-                                <p class="mt-4 text-slate-700 leading-relaxed">This approach cleverly bypasses the token
-                                    limit issue, provides a clean separation between business logic translation and data
-                                    access implementation, and results in idiomatic, maintainable Go code.</p>
-                            </div>
+                                <p class="mt-4 text-slate-700 leading-relaxed">This approach cleverly bypasses the token limit issue, provides a clean separation between business logic translation and data access implementation, and results in idiomatic, maintainable Go code.</p>
+                             </div>
                         </div>
                     </details>
 
@@ -271,7 +194,7 @@
                                     otherDetails.open = false;
                                 }
                             });
-
+                            
                             details.open = !currentlyOpen;
                         }
                     });
